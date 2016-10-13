@@ -1,0 +1,34 @@
+{
+  "name": "@mars/heroku-js-runtime-env",
+  "version": "1.0.0",
+  "description": "Runtime env var support for static javascript apps on Heroku",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mars/heroku-js-runtime-env.git"
+  },
+  "keywords": [
+    "heroku",
+    "environment",
+    "variable",
+    "env",
+    "var",
+    "config",
+    "runtime",
+    "javascript"
+  ],
+  "author": "Mars Hall",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mars/heroku-js-runtime-env/issues"
+  },
+  "homepage": "https://github.com/mars/heroku-js-runtime-env#readme",
+  "devDependencies": {
+    "mocha": "^3.1.2",
+    "rewire": "^2.5.2",
+    "should": "^11.1.1"
+  }
+}

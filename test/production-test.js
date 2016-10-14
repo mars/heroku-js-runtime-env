@@ -9,11 +9,11 @@ describe('in production', function() {
     runtimeEnv.__set__('originalEnv', { NODE_ENV: 'production'})
   })
 
-  it('throws error when Mustache tag is not rendered', function() {
-    runtimeEnv.should.throw(/Runtime env vars could not be parsed/)
+  it('continues when env JSON is not rendered (writes to error log)', function() {
+    runtimeEnv.should.not.throw()
   })
 
-  describe('with Mustache template replacements', function() {
+  describe('with env JSON', function() {
     beforeEach(function() {
       runtimeEnv.__set__('templatedEnv', '{ "REACT_APP_USER": "🦄"}')
     })

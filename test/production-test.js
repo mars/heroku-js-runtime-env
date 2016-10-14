@@ -9,8 +9,8 @@ describe('in production', function() {
     runtimeEnv.__set__('originalEnv', { NODE_ENV: 'production'})
   })
 
-  it('continues when env JSON is not rendered (writes to error log)', function() {
-    runtimeEnv.should.not.throw()
+  it('continues when env JSON is not parseable (writes to error log)', function() {
+    runtimeEnv().should.be.an.instanceOf(Object)
   })
 
   describe('with env JSON', function() {

@@ -13,6 +13,7 @@ function runtimeEnv() {
     try {
       env = JSON.parse(templatedEnv);
     } catch(error) {
+      env = {};
       console.error(
         'Runtime env vars cannot be parsed. '+
         'Content is `'+templatedEnv+'`'

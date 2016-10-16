@@ -1,5 +1,14 @@
 // Capture environment as module variable to allow testing.
-var originalEnv = process.env;
+var compileTimeEnv;
+try {
+  compileTimeEnv = process.env;
+} catch(error) {
+  compileTimeEnv = {};
+  console.log(
+    '`process.env` is not defined. '+
+    'Compile-time environment will be empty.'
+  );
+}
 // This template tag should be rendered/replaced with the environment in production.
 var templatedEnv = '{{REACT_APP_VARS_AS_JSON}}';
 
@@ -9,7 +18,7 @@ var templatedEnv = '{{REACT_APP_VARS_AS_JSON}}';
 function runtimeEnv() {
   var env;
 
-  if (originalEnv.NODE_ENV === 'production') {
+  if (compileTimeEnv.NODE_ENV === 'production') {
     try {
       env = JSON.parse(templatedEnv);
     } catch(error) {
@@ -21,7 +30,7 @@ function runtimeEnv() {
     }
 
   } else {
-    env = originalEnv;
+    env = compileTimeEnv;
   }
 
   return env;

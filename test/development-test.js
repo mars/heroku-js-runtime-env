@@ -6,11 +6,14 @@ describe('in development', function() {
 
   beforeEach(function() {
     runtimeEnv = rewire('../')
-    runtimeEnv.__set__('originalEnv', { NODE_ENV: 'development'})
+    runtimeEnv.__set__('compileTimeEnv', {
+      NODE_ENV: 'development',
+      REACT_APP_HELLO: 'world'
+    })
   });
 
   it('contains value of `process.env`', function() {
-    runtimeEnv().should.be.an.instanceOf(Object).and.have.property('NODE_ENV')
+    runtimeEnv().should.be.an.instanceOf(Object).and.have.property('REACT_APP_HELLO', 'world')
   })
 
 })

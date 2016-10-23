@@ -17,7 +17,7 @@ var runtimeEnv = '{{REACT_APP_VARS_AS_JSON______________________________________
 
 // A function returning the runtime environment, so that 
 // JSON parsing & errors occur at runtime instead of load time.
-function runtimeEnv() {
+function loadRuntimeEnv() {
   var env;
 
   if (compileTimeEnv.NODE_ENV === 'production') {
@@ -25,9 +25,10 @@ function runtimeEnv() {
       env = JSON.parse(runtimeEnv);
     } catch(error) {
       env = {};
+      var overflowsMessage = runtimeEnv.slice(32,33) != null;
       console.error(
         'Runtime env vars cannot be parsed. '+
-        'Content is `'+runtimeEnv+'`'
+        'Content is `'+runtimeEnv.slice(0,31)+( overflowsMessage ? '…' : '' )+'`'
       );
     }
 
@@ -38,4 +39,4 @@ function runtimeEnv() {
   return env;
 }
 
-module.exports = runtimeEnv;
+module.exports = loadRuntimeEnv;

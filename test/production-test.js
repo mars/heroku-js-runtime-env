@@ -14,7 +14,7 @@ describe('in production', function() {
 
   describe('with runtime env JSON', function() {
     beforeEach(function() {
-      runtimeEnv.__set__('templatedEnv', '{ "REACT_APP_USER": "🦄"}')
+      runtimeEnv.__set__('runtimeEnv', '{ "REACT_APP_USER": "🦄"}')
     })
 
     it('contains value of the runtime environment', function() {

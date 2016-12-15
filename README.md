@@ -8,7 +8,7 @@ Use runtime environment variables in bundled/minified javascript apps.
 Usage
 -----
 
-Designed for [create-react-app-buildpack](https://github.com/mars/create-react-app-buildpack). See its documentation to use this module for [Runtime configuration](https://github.com/mars/create-react-app-buildpack/README.md#environment-variables).
+Designed for [create-react-app-buildpack](https://github.com/mars/create-react-app-buildpack). See its documentation to use this module for [Runtime configuration](https://github.com/mars/create-react-app-buildpack/blob/master/README.md#environment-variables).
 
 Background
 -----------

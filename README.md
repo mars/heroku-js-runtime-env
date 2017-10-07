@@ -17,4 +17,4 @@ Normally javascript apps are compiled into a bundle before being deployed. Durin
 
 When hosting on a [12-factor](https://12factor.net) platform like [Heroku](https://www.heroku.com), these embedded values may go stale when setting new [config vars](https://devcenter.heroku.com/articles/config-vars) or promoting through a [pipeline](https://devcenter.heroku.com/articles/pipelines).
 
-In coordination with the Heroku runtime through a `.profile.d` script setup by [the buildpack](https://github.com/mars/create-react-app-buildpack), this tiny module allows the runtime to inject environment variables into the production javascript bundle without recompiling.
+In coordination with the Heroku runtime through a [`.profile.d` script setup by the buildpack](https://github.com/mars/create-react-app-inner-buildpack/blob/master/.profile.d/inject_react_app_env.sh), this tiny module allows the runtime to inject environment variables into the production javascript bundle without recompiling.

@@ -1,6 +1,6 @@
 {
   "name": "@mars/heroku-js-runtime-env",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Runtime env var support for static javascript apps on Heroku",
   "main": "index.js",
   "scripts": {

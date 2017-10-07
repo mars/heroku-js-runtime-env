@@ -8,7 +8,7 @@ Use runtime environment variables in bundled/minified javascript apps.
 Usage
 -----
 
-Designed for [create-react-app-buildpack](https://github.com/mars/create-react-app-buildpack). See its documentation to use this module for [Runtime configuration](https://github.com/mars/create-react-app-buildpack/blob/master/README.md#environment-variables).
+Designed for [create-react-app-buildpack](https://github.com/mars/create-react-app-buildpack). See its documentation to use this module for [Runtime configuration](https://github.com/mars/create-react-app-buildpack/blob/master/README.md#user-content-environment-variables).
 
 Background
 -----------
@@ -17,4 +17,9 @@ Normally javascript apps are compiled into a bundle before being deployed. Durin
 
 When hosting on a [12-factor](https://12factor.net) platform like [Heroku](https://www.heroku.com), these embedded values may go stale when setting new [config vars](https://devcenter.heroku.com/articles/config-vars) or promoting through a [pipeline](https://devcenter.heroku.com/articles/pipelines).
 
-In coordination with the Heroku runtime through a [`.profile.d` script setup by the buildpack](https://github.com/mars/create-react-app-inner-buildpack/blob/master/.profile.d/inject_react_app_env.sh), this tiny module allows the runtime to inject environment variables into the production javascript bundle without recompiling.
+How Does It Work?
+-----------------
+
+When developing your app, use [Runtime environment variables](https://github.com/mars/create-react-app-buildpack/blob/master/README.md#user-content-environment-variables) from **create-react-app-buildpack**.
+
+Then, each time the app starts-up on Heroku, a [`.profile.d` script](https://github.com/mars/create-react-app-inner-buildpack/blob/master/.profile.d/inject_react_app_env.sh) (installed from the buildpack) is executed which fills in a [JSON placeholder](https://github.com/mars/heroku-js-runtime-env/blob/master/index.js#L15) in the JavaScript bundle with the runtime environment variables. The result is 🍃fresh runtime environment variables in the production javascript bundle without recompiling.

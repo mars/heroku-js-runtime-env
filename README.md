@@ -10,6 +10,8 @@ Usage
 
 Designed for [create-react-app-buildpack](https://github.com/mars/create-react-app-buildpack). See its documentation to use this module for [Runtime configuration](https://github.com/mars/create-react-app-buildpack/blob/master/README.md#user-content-environment-variables).
 
+See also 🔬🚧 **experimental, generalized usage with [heroku-js-runtime-env-buildpack](https://github.com/mars/heroku-js-runtime-env-buildpack)**.
+
 Background
 -----------
 
